@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <!-- Icon tạm của app (D13): chữ "WS" như logo sidebar, nền primary-600. Chữ vẽ bằng nét (không phụ thuộc font).
+       Sửa file này rồi chạy `npm run icons` để sinh lại các PNG trong public/. -->
+  <rect width="512" height="512" rx="96" fill="#1d4ed8" />
+  <g fill="none" stroke="#fff" stroke-width="36" stroke-linecap="round" stroke-linejoin="round">
+    <polyline points="104,190 146,322 190,222 234,322 276,190" />
+    <path
+      d="M402 212C392 196 374 190 356 190C330 190 312 204 312 224C312 246 332 252 358 258C386 264 406 272 406 294C406 314 386 324 360 324C338 324 318 316 308 298"
+    />
+  </g>
+</svg>
