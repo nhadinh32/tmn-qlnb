@@ -8,10 +8,89 @@
     <link rel="icon" href="/tmn-qlnb/icon.svg" type="image/svg+xml" />
     <link rel="apple-touch-icon" href="/tmn-qlnb/apple-touch-icon-180x180.png" />
     <title>Không gian làm việc</title>
-    <script type="module" crossorigin src="/tmn-qlnb/assets/index-V2bLuNeA.js"></script>
-    <link rel="stylesheet" crossorigin href="/tmn-qlnb/assets/index-D60gKddO.css">
+    <!-- Style của màn chờ khởi động (#boot) viết thẳng ở đây: không phụ thuộc CSS / JS của app đang tải. -->
+    <style>
+      #boot {
+        position: fixed;
+        inset: 0;
+        z-index: 2147483647;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 16px;
+        background: #f1f5f9;
+        font-family:
+          system-ui,
+          -apple-system,
+          "Segoe UI",
+          Roboto,
+          sans-serif;
+        transition: opacity 0.2s;
+      }
+      #boot.boot-hide {
+        opacity: 0;
+        pointer-events: none;
+      }
+      #boot svg {
+        width: 72px;
+        height: 72px;
+      }
+      #boot .boot-name {
+        color: #334155;
+        font-size: 15px;
+        font-weight: 600;
+      }
+      #boot .boot-track {
+        position: relative;
+        width: 200px;
+        height: 4px;
+        overflow: hidden;
+        border-radius: 9999px;
+        background: #e2e8f0;
+      }
+      #boot .boot-bar {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        width: 35%;
+        border-radius: 9999px;
+        background: #1d4ed8;
+        animation: boot-slide 1.2s ease-in-out infinite alternate;
+      }
+      @keyframes boot-slide {
+        to {
+          left: 65%;
+        }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        #boot .boot-bar {
+          width: 100%;
+          opacity: 0.5;
+          animation: none;
+        }
+      }
+    </style>
+    <script type="module" crossorigin src="/tmn-qlnb/assets/index-Bkdo-Gld.js"></script>
+    <link rel="stylesheet" crossorigin href="/tmn-qlnb/assets/index-BCr8bRWL.css">
   <link rel="manifest" href="/tmn-qlnb/manifest.webmanifest"></head>
   <body>
+    <!-- Màn chờ khởi động: hiện ngay khi có HTML (che trang trắng lúc tải JS và khôi phục phiên đăng nhập); App gỡ đi
+    khi đã biết trạng thái đăng nhập (src/app/boot.ts). Logo = public/icon.svg viết thẳng để không phải tải thêm. -->
+    <div id="boot" role="progressbar" aria-label="Đang tải ứng dụng">
+      <svg viewBox="0 0 512 512" aria-hidden="true">
+        <rect width="512" height="512" rx="96" fill="#1d4ed8" />
+        <g fill="none" stroke="#fff" stroke-width="36" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="104,190 146,322 190,222 234,322 276,190" />
+          <path
+            d="M402 212C392 196 374 190 356 190C330 190 312 204 312 224C312 246 332 252 358 258C386 264 406 272 406 294C406 314 386 324 360 324C338 324 318 316 308 298"
+          />
+        </g>
+      </svg>
+      <div class="boot-name">Không gian làm việc</div>
+      <div class="boot-track"><div class="boot-bar"></div></div>
+    </div>
     <div id="app"></div>
   </body>
 </html>
