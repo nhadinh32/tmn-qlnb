@@ -1,1 +1,0 @@
-import{a0 as r,a1 as s,a2 as f,a3 as n,a4 as c}from"./index-DL2fQ5_o.js";async function l(e,o,a){r(e);const i=s(o);i&&f.open(i.module.id,i.view,{record:n(e,o),table:e,path:o,field:a})||await c(e,o)}export{l as o};
